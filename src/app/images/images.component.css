@@ -1,0 +1,34 @@
+.applist-container {
+  padding-left: 35px;
+  padding-top: 35px;
+  padding-bottom: 71px;
+}
+
+.app-list {
+  display: inline-block;
+}
+/*app part : app container;app img ;app name*/
+.app-container {
+  text-align: center;
+  padding: 35px 67px 0;
+}
+
+.app-name {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 0;
+}
+
+.app-btn {
+  color: rgba(0, 0, 0, 0.40);
+  background: rgba(255, 255, 255, 0.21);
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  height: 23px;
+  width: 78px;
+  margin: auto;
+  text-align: center;
+  line-height: 23px;
+}

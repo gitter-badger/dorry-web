@@ -1,3 +1,17 @@
-<h1>
-  Apps Page!!!
-</h1>
+<div class="applist-container">
+  <div class="app-list" *ngFor="let app of appList">
+    <div class="app-container">
+      <div class="app-img">
+        <img src={{app.url}} style="height:110px;width:110px;"/>
+      </div>
+      <!-- name of the app -->
+      <div class="app-name">
+        {{app.name}}
+      </div>
+      <!-- start app button part -->
+      <div class="app-btn">
+        Start New
+      </div>
+    </div>
+  </div>
+</div>

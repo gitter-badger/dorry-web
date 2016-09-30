@@ -7,22 +7,50 @@ import { NavbarBtn } from './navbtn';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  btnlist:NavbarBtn[];
-  tempname:string;
+  btnlist: NavbarBtn[];
 
   constructor() { }
 
   ngOnInit() {
-    this.btnlist=BTNLIST;
+    this.btnlist = BTNLIST;
   }
 
-  onClick(btn:NavbarBtn){
-    this.tempname=btn.name;
+  onSelect(btn: NavbarBtn) {
+    this.resetBtn();
+    if (!btn.isClicked) {
+      btn.isClicked = true;
+      this.changeBtn(btn);
+    }
+    else if (btn.isClicked) {
+      btn.isClicked = false;
+      this.changeBtn(btn);
+    }
   }
+
+  changeBtn(btn: NavbarBtn) {
+    if (!btn.isClicked) {
+      btn.out = btn.img;
+    }
+    else if (btn.isClicked) {
+      btn.out = btn.clickedImg;
+    }
+  }
+
+  resetBtn() {
+    for (let btn of this.btnlist) {
+      btn.out = btn.img;
+      btn.isClicked = false;
+    }
+  }
+
 }
 
-const BTNLIST:NavbarBtn[] = [
-  {name:"dorry",img:"assets/logo.png",url:"/"},
-  {name:"containers",img:"assets/containers.png",url:"/containers"},
-  {name:"apps",img:"assets/apps.png",url:"/apps"},
+
+const BTNLIST: NavbarBtn[] = [
+  {
+    name: "dorry", out: "assets/logo.png", img: "assets/logo.png", clickedImg
+    : "assets/logo.png", url: "/", isClicked: false
+  },
+  { name: "containers", out: "assets/containers.png", img: "assets/containers.png", clickedImg: "assets/containers-1.png", url: "/containers", isClicked: false },
+  { name: "apps", out: "assets/apps.png", img: "assets/apps.png", clickedImg: "assets/apps-1.png", url: "/apps", isClicked: false },
 ];

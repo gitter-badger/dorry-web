@@ -1,26 +1,21 @@
-<!--
-<div class="navbar">
-  <ul *ngFor="let btn of btnlist" (click)="onClick(btn)">
-    <li>
-      {{btn.name}}{{btn.img}}
-    </li>
-  </ul>
-  {{tempname}}
-</div>
--->
-<div class="row" style="height:100vh;">
-  <div class="col-md-2" style="height:100%">
+<div class="sidenav">
 
-    <div class="sidenav">
-      <div class="navbtn" *ngFor="let btn of btnlist" (click)="onSelect(b)">
-          <a routerLink="{{btn.url}}"><img src={{btn.img}}/></a>
-        </div>
+  <div class="navbtn" *ngFor="let btn of btnlist" (click)="onSelect(btn)">
+    <div [ngSwitch]="btn.isClicked">
+      <div *ngSwitchCase="false">
+        <a [ngStyle]="{'background':'rgba(0, 0, 0, 0)'}" routerLink="{{btn.url}}"><img src={{btn.out}}/></a>
+      </div>
+      <div *ngSwitchCase="true">
+        <a [ngStyle]="{'background':'url(assets/widget.png)'}" routerLink="{{btn.url}}"><img src={{btn.out}}/></a>
+      </div>
     </div>
   </div>
-  <div class="col-md-10" style="height:100%">
+</div>
 
-    <router-outlet>
-    </router-outlet>
-
+<div class="right-part">
+  <div class="header"></div>
+  <div class="content">
+    <router-outlet></router-outlet>
   </div>
+  <div class="footer"></div>
 </div>
