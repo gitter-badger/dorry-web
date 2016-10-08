@@ -8,6 +8,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ContainersComponent } from './containers/containers.component';
 import { ImagesComponent } from './images/images.component';
 
+import { HttpService } from './http.service';
+
 import { routing } from './app.routing';
 
 @NgModule({
@@ -23,7 +25,7 @@ import { routing } from './app.routing';
     HttpModule,
     routing,
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
