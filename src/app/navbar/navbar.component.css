@@ -6,7 +6,8 @@
   background-image: url("assets/navbarbg.png");
   background-repeat: repeat-y;
   z-index: 100;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.33), 0 15px 12px rgba(0,0,0,0.22);
+  /*box-shadow: 0 19px 38px rgba(0,0,0,0.33), 0 15px 12px rgba(0,0,0,0.22);*/
+  box-shadow: 0 0 38px rgba(0,0,0,0.33), 0 0 12px rgba(0,0,0,0.22);
   text-align: center;
 }
 
@@ -35,7 +36,7 @@
 }
 
 .header {
-  height: 70px;
+  height: 60px;
   width: 100%;
   background: rgba(0, 0, 0, 0.16);
 }

@@ -1,12 +1,36 @@
+<!--
 <div class="applist-container">
   <div class="app-list" *ngFor="let app of appList">
     <div class="app-container">
       <div class="app-img">
         <img src={{app.url}} style="height:110px;width:110px;"/>
       </div>
-      <!-- name of the app -->
+
       <div class="app-name">
         {{app.name}}
+      </div>
+
+      <div class="app-btn">
+        Start New
+      </div>
+    </div>
+  </div>
+</div>
+<ul>
+  <li *ngFor="let item of imageInfoes">{{item.RepoTags[0]}}</li>
+</ul>
+-->
+
+<div class="applist-container">
+  <div class="app-list" *ngFor="let app of imageInfoes">
+    <div class="app-container">
+      <div class="app-img">
+        <!-- <img src={{app.url}} style="height:110px;width:110px;"/> -->
+        <img src="assets/icons/default.png" style="height:90px;width:90px;"/>
+      </div>
+      <!-- name of the app -->
+      <div class="app-name">
+        {{app.RepoTags[0]}}
       </div>
       <!-- start app button part -->
       <div class="app-btn">
@@ -15,6 +39,3 @@
     </div>
   </div>
 </div>
-<ul>
-  <li *ngFor="let item of mageInfoes | async">{{item.id}}</li>
-</ul>
