@@ -14,20 +14,24 @@
 }
 
 .app-name {
+  width: 90px;
   color: #ffffff;
   font-size: 14px;
   font-weight: bold;
   padding: 6px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .app-btn {
   color: rgba(0, 0, 0, 0.40);
   background: rgba(255, 255, 255, 0.21);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: bold;
-  border-radius: 4px;
-  height: 23px;
-  width: 78px;
+  border-radius: 5px;
+  height: 20px;
+  width: 58px;
   margin: auto;
   text-align: center;
   line-height: 23px;

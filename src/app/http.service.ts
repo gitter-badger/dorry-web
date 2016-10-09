@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response, Jsonp, RequestOptions } from '@angular/http';
-import { ImageInfo } from './imageInfo';
 import { Observable }     from 'rxjs/Observable';
 
 import 'rxjs/add/operator/toPromise';
@@ -22,7 +21,8 @@ export class HttpService {
   //
   // }
 
-  getHeroes(): Promise<ImageInfo[]> {
+  //get all heroes info from docker daemon
+  getImageInfoes() {
     //let headers = new Headers({ 'Access-Control-Allow-Origin': '*' });
     //let options = new RequestOptions({ headers: headers });
     return this.http.get(this.address + this.imagesUrl)
@@ -32,9 +32,12 @@ export class HttpService {
   }
 
   private extractData(res: Response) {
+    console.log(res.toString())
     let body = res.json();
-    return body.data || { "nima": "fadf" };
+    console.log(res.json());
+    return body;
   }
+
   private handleError(error: any) {
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message
