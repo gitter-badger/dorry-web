@@ -1,14 +1,15 @@
-import { ModuleWithProviders }  from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {ContainersComponent} from './containers/containers.component';
-import {ImagesComponent} from './images/images.component';
+import { LoginComponent } from './login/login.component';
+import { ContainersComponent } from './containers/containers.component';
+import { ImagesComponent } from './images/images.component';
 
 const appRoutes: Routes = [
-  // {
-  //    path: '/home',
-  //    redirectTo: '/',
-  // },
+  {
+     path: 'home',
+     component: LoginComponent
+  },
   {
     path: 'containers',
     component: ContainersComponent
@@ -16,6 +17,11 @@ const appRoutes: Routes = [
   {
     path: 'apps',
     component: ImagesComponent
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
   }
 ];
 

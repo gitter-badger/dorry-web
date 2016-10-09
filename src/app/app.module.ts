@@ -4,12 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContainersComponent } from './containers/containers.component';
 import { ImagesComponent } from './images/images.component';
 
 import { HttpService } from './http.service';
-
 import { routing } from './app.routing';
 
 @NgModule({
@@ -18,6 +18,7 @@ import { routing } from './app.routing';
     NavbarComponent,
     ContainersComponent,
     ImagesComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +26,9 @@ import { routing } from './app.routing';
     HttpModule,
     routing,
   ],
-  providers: [HttpService],
+  providers: [
+    HttpService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

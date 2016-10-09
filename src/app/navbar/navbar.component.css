@@ -3,7 +3,6 @@
   width: 87px;
   float: left;
   position: absolute;
-  /*background: linear-gradient(90deg, #373d85, #c78575);*/
   background-image: url("assets/navbarbg.png");
   background-repeat: repeat-y;
   z-index: 100;

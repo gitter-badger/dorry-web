@@ -2,15 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Image } from './image';
 import { IMAGELIST } from './mock-images';
 import { HttpService } from '../http.service';
-import {Jsonp} from '@angular/http';
 import { ImageInfo } from '../imageInfo';
-import { Observable }       from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.css'],
-
 })
 export class ImagesComponent implements OnInit {
   appList: Image[];
