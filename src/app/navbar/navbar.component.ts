@@ -45,7 +45,6 @@ export class NavbarComponent implements OnInit {
 
 }
 
-
 const BTNLIST: NavbarBtn[] = [
   {
     name: "dorry", out: "assets/logo.png", img: "assets/logo.png", clickedImg

@@ -8,8 +8,12 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContainersComponent } from './containers/containers.component';
 import { ImagesComponent } from './images/images.component';
+import { ContainersErrorComponent } from './containers-error/containers-error.component';
+import { ContainersStoppedComponent } from './containers-stopped/containers-stopped.component';
+import { ContainersRunningComponent } from './containers-running/containers-running.component';
 
 import { HttpService } from './http.service';
+import { ContainerService } from './containers/container.service';
 import { routing } from './app.routing';
 
 @NgModule({
@@ -19,6 +23,9 @@ import { routing } from './app.routing';
     ContainersComponent,
     ImagesComponent,
     LoginComponent,
+    ContainersErrorComponent,
+    ContainersStoppedComponent,
+    ContainersRunningComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +34,8 @@ import { routing } from './app.routing';
     routing,
   ],
   providers: [
-    HttpService
+    HttpService,
+    ContainerService
   ],
   bootstrap: [AppComponent]
 })
