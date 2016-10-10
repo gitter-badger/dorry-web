@@ -1,9 +1,16 @@
 <div class="service-list-container">
+  <div class="service-header">
+    There are something wrong, please check them.
+  </div>
   <div class="service-list" *ngFor="let service of services">
 
     <div class="service-container">
       <span class="service-img">
-        <img src={{service.url}} style="height:71px; width:71px;"/>
+        <div class="icon-wrong">
+          <img src="assets/icons/wrong.png"/>
+        </div>
+        <!-- <img class="icon-wrong" src="assets/icons/wrong.png"/> -->
+        <img class="icon-service" src={{service.url}} style="height:71px; width:71px"/>
       </span>
 
       <span class="service-misc">
