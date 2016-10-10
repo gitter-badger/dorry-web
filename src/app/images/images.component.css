@@ -6,6 +6,7 @@
 
 .app-list {
   display: inline-block;
+  overflow: auto;
 }
 /*app part : app container;app img ;app name*/
 .app-container {

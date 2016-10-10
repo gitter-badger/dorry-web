@@ -24,9 +24,9 @@
 <div class="applist-container">
   <div class="app-list" *ngFor="let app of imageInfoes">
     <div class="app-container">
-      <div class="app-img">
-        <!-- <img src={{app.url}} style="height:110px;width:110px;"/> -->
-        <img src="assets/icons/default.png" style="height:90px;width:90px;"/>
+      <div class="app-img" (mouseover)="showCloseBtn(app)">
+        <img src={{app.url}} style="height:90px;width:90px;"/>
+        <!-- <img src="assets/icons/default.png" style="height:90px;width:90px;"/> -->
       </div>
       <!-- name of the app -->
       <div class="app-name">
