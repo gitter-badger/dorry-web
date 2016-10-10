@@ -48,8 +48,11 @@ export class ImagesComponent implements OnInit {
       );
   }
 
-  //show close button when mouseover the app image
-  showCloseBtn(imageInfo: ImageInfo) {
-    console.log("mouseover:" + imageInfo.RepoTags[0]);
+  //remove image event when click remove button
+  removeImage(id: string) {
+    let message: string;
+    this.httpService.removeImage(id).then(mgs => this.getImageInfoes());
+    console.log("remove Image : " + id);
   }
+
 }

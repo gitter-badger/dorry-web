@@ -1,7 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './login/login.component';
 import { ContainersComponent } from './containers/containers.component';
 import { ImagesComponent } from './images/images.component';
 
