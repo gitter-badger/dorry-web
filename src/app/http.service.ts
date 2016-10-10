@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response, Jsonp, RequestOptions } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
-
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+
 
 @Injectable()
 export class HttpService {
@@ -29,6 +29,9 @@ export class HttpService {
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
+    // let imageInfoes: ImageInfo[];
+    // this.http.get(this.address + this.imagesUrl).toPromise().then(res => imageInfoes = res.json());
+    // return imageInfoes;
   }
 
   private extractData(res: Response) {
