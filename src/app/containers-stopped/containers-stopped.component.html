@@ -1,3 +1,33 @@
-<p>
-  containers-stopped works!
-</p>
+<div class="service-list-container">
+  <div class="service-list" *ngFor="let service of services">
+    <div class="service-container">
+      <!-- Service img -->
+      <span class="service-img">
+        <img src={{service.url}} style="height:71px; width:71px;"/>
+      </span>
+
+      <span class="service-misc">
+        <!-- Service name -->
+        <div class="service-name">
+          {{service.name}}
+        </div>
+        <!-- Service uptime -->
+        <div class="service-info">
+          Run
+          {{service.time}}
+          days
+        </div>
+        <!-- Service port -->
+        <div class="service-info">
+          Port:
+          {{service.port}}
+        </div>
+        <!-- Button -->
+        <div class="service-btn">
+          button
+        </div>
+      </span>
+    </div>
+
+  </div>
+</div>

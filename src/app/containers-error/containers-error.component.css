@@ -1,5 +1,6 @@
 .service-list-container {
-  margin: 40px 68px 35px 67px;
+  margin: 40px 68px 46px 67px;
+  padding: 0 15px 0 16px;
   background: rgba(255, 255, 255, 0.21);
   border-radius: 9px;
 }

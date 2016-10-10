@@ -6,8 +6,7 @@
   background-image: url("assets/navbarbg.png");
   background-repeat: repeat-y;
   z-index: 100;
-  /*box-shadow: 0 19px 38px rgba(0,0,0,0.33), 0 15px 12px rgba(0,0,0,0.22);*/
-  box-shadow: 0 0 38px rgba(0,0,0,0.33), 0 0 12px rgba(0,0,0,0.22);
+  box-shadow: 0 0 38px rgba(0, 0, 0, 0.33), 0 0 12px rgba(0, 0, 0, 0.22);
   text-align: center;
 }
 
@@ -28,6 +27,7 @@
 
 .right-part {
   height: 100%;
+  overflow: auto;
   width: 100%;
   position: absolute;
   background: linear-gradient(135deg, #c78575, #373d85);
@@ -39,4 +39,27 @@
   height: 60px;
   width: 100%;
   background: rgba(0, 0, 0, 0.16);
+  line-height: 60px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-align: right;
+  padding-right: 68px;
+}
+
+.content {
+  min-height: 846px;
+}
+
+.footer {
+  height: 60px;
+  width: 100%;
+  line-height: 60px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  position: static;
+  bottom: 0;
+  text-align: right;
+  padding-right: 68px;
 }

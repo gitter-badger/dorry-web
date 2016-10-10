@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Container } from '../containers/container';
+import { ContainerService } from '../containers/container.service';
 
 @Component({
   selector: 'app-containers-stopped',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./containers-stopped.component.css']
 })
 export class ContainersStoppedComponent implements OnInit {
+  services: Container[];
 
-  constructor() { }
+  constructor(private containerService: ContainerService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getContainers();
+  }
+
+  getContainers(): void {
+    this.containerService.getContainers().then(services => this.services = services);
   }
 
 }
