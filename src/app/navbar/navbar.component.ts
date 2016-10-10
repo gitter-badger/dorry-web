@@ -47,9 +47,8 @@ export class NavbarComponent implements OnInit {
 
 const BTNLIST: NavbarBtn[] = [
   {
-    name: "dorry", out: "assets/logo.png", img: "assets/logo.png", clickedImg
-    : "assets/logo.png", url: "/", isClicked: false
+    name: "dorry", out: "assets/logo.png", img: "assets/logo.png", clickedImg: "assets/logo.png", url: "/", isClicked: false
   },
-  { name: "containers", out: "assets/containers.png", img: "assets/containers.png", clickedImg: "assets/containers-1.png", url: "/containers", isClicked: false },
+  { name: "services", out: "assets/containers.png", img: "assets/containers.png", clickedImg: "assets/containers-1.png", url: "/", isClicked: false },
   { name: "apps", out: "assets/apps.png", img: "assets/apps.png", clickedImg: "assets/apps-1.png", url: "/apps", isClicked: false },
 ];

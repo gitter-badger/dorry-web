@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContainersComponent } from './containers/containers.component';
 import { ImagesComponent } from './images/images.component';
@@ -22,7 +21,6 @@ import { routing } from './app.routing';
     NavbarComponent,
     ContainersComponent,
     ImagesComponent,
-    LoginComponent,
     ContainersErrorComponent,
     ContainersStoppedComponent,
     ContainersRunningComponent,

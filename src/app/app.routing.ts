@@ -7,21 +7,12 @@ import { ImagesComponent } from './images/images.component';
 
 const appRoutes: Routes = [
   {
-     path: 'home',
-     component: LoginComponent
-  },
-  {
-    path: 'containers',
+    path: '',
     component: ContainersComponent
   },
   {
     path: 'apps',
     component: ImagesComponent
-  },
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
   }
 ];
 
