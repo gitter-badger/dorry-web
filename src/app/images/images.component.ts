@@ -13,9 +13,7 @@ export class ImagesComponent implements OnInit {
   imageList: ImageUrl[];
   imageInfoes: ImageInfo[];
 
-  constructor(private httpService: HttpService) {
-
-  }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
     this.imageList = IMAGELIST;
@@ -28,12 +26,10 @@ export class ImagesComponent implements OnInit {
 
     for (let imageInfo of this.imageInfoes) {
       for (let imageUrl of this.imageList) {
-        if (imageInfo.RepoTags[0] == imageUrl.name) {
+        if (imageInfo.RepoTags[0] == imageUrl.name)
           imageInfo.url = imageUrl.name;
-        }
-        else {
+        else
           imageInfo.url = DEFAULTURL;
-        }
       }
     }
   }
