@@ -1,26 +1,26 @@
-import { Injectable } from '@angular/core';
-import { Headers, Http, Response, Jsonp, RequestOptions } from '@angular/http';
-import { Observable }     from 'rxjs/Observable';
+import { Injectable, Injector } from '@angular/core';
+import { Headers, Http, Response, Request, RequestMethod, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { ImageInfo } from './images/imageInfo';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-
 @Injectable()
 export class HttpService {
   private address = 'http://localhost:4243';
-
   //docker remote api part
   private listImages = '/images/json?all=0';//[GET]  list images
   private removeImages = '/images/{id}?force=1';//[DELETE]  remove image ,add image id after the url
 
-
-
   constructor(private http: Http) { }
 
-  //get all heroes info from docker daemon
-  getImageInfoes() {
-    return this.http.get(this.address + this.listImages)
+  getImageInfoes(): Promise<ImageInfo[]> {
+    return this.http.request(
+      new Request({
+        method: RequestMethod.Get,
+        url: this.address + this.listImages
+      }))
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
@@ -33,8 +33,6 @@ export class HttpService {
       .then(this.extractData)
       .catch(this.handleError);
   }
-
-
 
   private extractData(res: Response) {
     console.log(res.toString())
