@@ -37,3 +37,16 @@
   text-align: center;
   line-height: 23px;
 }
+
+.app-img:hover .app-removebtn {
+  visibility: visible;
+}
+
+.app-removebtn {
+  visibility: hidden;
+  z-index: 3;
+  position: relative;
+  height: 0;
+  left: 43px;
+  top: -8px;
+}
