@@ -8,7 +8,7 @@ import { ContainerService } from '../containers/container.service';
   styleUrls: ['./containers-running.component.css']
 })
 export class ContainersRunningComponent implements OnInit {
-  services: Container[];
+  containers: Container[];
 
   constructor(private containerService: ContainerService) { }
 
@@ -17,7 +17,9 @@ export class ContainersRunningComponent implements OnInit {
   }
 
   getContainers(): void {
-    this.containerService.getContainers().then(services => this.services = services);
+    this.containerService.getContainers()
+      .then(data => this.containers = data)
+      .then(data => console.log(this.containers));
   }
 
 }

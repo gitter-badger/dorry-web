@@ -37,11 +37,8 @@ export class ImagesComponent implements OnInit {
   //get json object array from Docker Daemon
   getImageInfoes() {
     this.httpService.getImageInfoes()
-      .then(
-      data => this.imageInfoes = data,
-    ).then(
-      data => this.initImages()
-      );
+      .then(data => this.imageInfoes = data)
+      .then(data => this.initImages());
   }
 
   //remove image event when click remove button
