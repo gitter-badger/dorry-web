@@ -8,15 +8,39 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class ContainerService {
   private origin = 'http://localhost:4243';
-  private param = '/containers/json?all=1';
+  private paramRunning = '/containers/json?all=0';
+  private paramAll = '/containers/json?all=1';
+  private toBeRemoved = '/containers/{id}?v=1?force=1';
 
   constructor(private http: Http) { }
 
-  getContainers(): Promise<Container[]> {
+  getRunningContainers(): Promise<Container[]> {
     return this.http.request(
       new Request({
         method: RequestMethod.Get,
-        url: this.origin + this.param
+        url: this.origin + this.paramRunning
+      }))
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getAllContainers(): Promise<Container[]> {
+    return this.http.request(
+      new Request({
+        method: RequestMethod.Get,
+        url: this.origin + this.paramAll
+      }))
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
+  removeContainer(id: string) {
+    return this.http.request(
+      new Request({
+        method: RequestMethod.Delete,
+        url: this.origin + this.toBeRemoved.replace("{id}", id)
       }))
       .toPromise()
       .then(this.extractData)

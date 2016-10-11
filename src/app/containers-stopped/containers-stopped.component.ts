@@ -8,16 +8,21 @@ import { ContainerService } from '../containers/container.service';
   styleUrls: ['./containers-stopped.component.css']
 })
 export class ContainersStoppedComponent implements OnInit {
-  services: Container[];
+  containers: Container[];
 
   constructor(private containerService: ContainerService) { }
 
   ngOnInit(): void {
-    this.getContainers();
+    this.getAllContainers();
   }
 
-  getContainers(): void {
-    this.containerService.getContainers().then(services => this.services = services);
+  getAllContainers(): void {
+    this.containerService.getAllContainers()
+      .then(data => this.containers = data)
+      .then(data => (
+        this.containers[0].iconAssigned = true,
+        this.containers[0].iconUrl = "assets/icons/ldap.png"
+      ));
   }
 
 }

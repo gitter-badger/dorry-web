@@ -6,35 +6,34 @@
       Remove All
     </span>
   </div>
-  <div class="service-list" *ngFor="let service of services">
+  <div class="service-list" *ngFor="let container of containers">
 
     <div class="service-container">
-      <span class="service-img">
+      <span class="service-icon" [ngSwitch]="container.iconAssigned">
         <div class="icon-wrong">
           <img src="assets/wrong.png"/>
         </div>
-        <img class="icon-service" src={{service.url}} style="height: 71px; width: 71px"/>
+        <img *ngSwitchCase="true" src={{container.iconUrl}} style="height:71px; width:71px"/>
+        <img *ngSwitchDefault src="assets/icons/default.png" style="height:71px; width:71px"/>
       </span>
 
       <span class="service-misc">
         <!-- Service name -->
-        <div class="service-name">
-          {{service.name}}
+        <div class="service-name" *ngIf="container.Names[0]">
+          {{container.Names[0] | slice:1}}
         </div>
         <!-- Service uptime -->
-        <div class="service-info">
-          Run
-          {{service.time}}
-          days
+        <div class="service-info" *ngIf="container.Status">
+          {{container.Status}}
         </div>
         <!-- Service port -->
-        <div class="service-info">
+        <div class="service-info" *ngIf="container.Ports[0] != undefined">
           Port:
-          {{service.port}}
+          {{container.Ports[0].PublicPort}}
         </div>
         <!-- Button -->
-        <div class="service-btn">
-          button
+        <div class="service-btn" (click)="removeContainer(container.Id)">
+          Remove
         </div>
       </span>
     </div>
