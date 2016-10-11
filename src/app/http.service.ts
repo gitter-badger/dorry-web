@@ -14,7 +14,9 @@ export class HttpService {
   private listImages = '/images/json?all=0';//[GET]  list images
   private removeImages = '/images/{id}?force=1';//[DELETE]  remove image ,add image id after the url
 
-
+  //define request header to use CORS
+  // headers = new Headers({ 'Access-Control-Allow-Origin': '*' });
+  // options = new RequestOptions({ headers: this.headers });
 
   constructor(private http: Http) { }
 
