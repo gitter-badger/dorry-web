@@ -13,15 +13,15 @@ export class ContainersStoppedComponent implements OnInit {
   constructor(private containerService: ContainerService) { }
 
   ngOnInit(): void {
-    this.getAllContainers();
+    this.getStoppedContainers();
   }
 
-  getAllContainers(): void {
-    this.containerService.getAllContainers()
+  getStoppedContainers(): void {
+    this.containerService.getStoppedContainers()
       .then(data => this.containers = data)
       .then(data => (
         this.containers[0].iconAssigned = true,
-        this.containers[0].iconUrl = "assets/icons/ldap.png"
+        this.containers[0].iconUrl = "assets/icons/mysql.png"
       ));
   }
 

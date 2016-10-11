@@ -9,6 +9,7 @@ import 'rxjs/add/operator/catch';
 export class ContainerService {
   private origin = 'http://localhost:4243';
   private paramRunning = '/containers/json?all=0';
+  private paramStopped = '/containers/json?filters={"status":["exited"]}';
   private paramAll = '/containers/json?all=1';
   private toBeRemoved = '/containers/{id}?v=1?force=1';
 
@@ -19,6 +20,17 @@ export class ContainerService {
       new Request({
         method: RequestMethod.Get,
         url: this.origin + this.paramRunning
+      }))
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getStoppedContainers(): Promise<Container[]> {
+    return this.http.request(
+      new Request({
+        method: RequestMethod.Get,
+        url: this.origin + this.paramStopped
       }))
       .toPromise()
       .then(this.extractData)
