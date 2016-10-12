@@ -5,7 +5,10 @@ import { ContainerService } from '../containers/container.service';
 @Component({
   selector: 'app-containers-error',
   templateUrl: './containers-error.component.html',
-  styleUrls: ['./containers-error.component.css']
+  styleUrls: [
+    './containers-error.component.css',
+    '../containers/containers.component.css'
+  ]
 })
 export class ContainersErrorComponent implements OnInit {
   containers: Container[];
@@ -13,23 +16,27 @@ export class ContainersErrorComponent implements OnInit {
   constructor(private containerService: ContainerService) { }
 
   ngOnInit(): void {
-    this.getAllContainers();
+    this.getErrorContainers();
   }
 
-  getAllContainers(): void {
-    this.containerService.getAllContainers()
-      .then(data => this.containers = data)
-      .then(data => (
-        this.containers[0].iconAssigned = true,
-        this.containers[0].iconUrl = "assets/icons/gitlab.png"
-      ));
+  getErrorContainers() {
+    this.containerService.getErrorContainers()
+      .then(data => this.containers = data);
   }
 
   removeContainer(id: string) {
     this.containerService.removeContainer(id)
-      .then();
-    //this.containerService.removeContainer(id).then(() => { });
-    console.log(id);
+      .then(data => this.getErrorContainers());
+  }
+
+  removeAll() {
+    this.containerService.getErrorContainers()
+      .then(data => this.containers = data)
+      .then(data => {
+        for (let container of this.containers) {
+          this.removeContainer(container["Id"]);
+        }
+      });
   }
 
 }

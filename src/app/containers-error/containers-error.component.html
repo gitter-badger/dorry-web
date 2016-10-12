@@ -1,7 +1,7 @@
 <div class="service-list-container">
-  <div class="service-header">
+  <div class="error-service-header">
     <span class="service-header-left">There are something wrong, please check them.</span>
-    <span class="service-header-right">
+    <span class="service-header-right" (click)="removeAll()">
       <img src="assets/trash.png" style="margin:0"/>
       Remove All
     </span>
@@ -31,7 +31,7 @@
           Port:
           {{container.Ports[0].PublicPort}}
         </div>
-        <!-- Button -->
+        <!-- Remove Button -->
         <div class="service-btn" (click)="removeContainer(container.Id)">
           Remove
         </div>

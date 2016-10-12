@@ -21,8 +21,8 @@
           Port:
           {{container.Ports[0].PublicPort}}
         </div>
-        <!-- Button -->
-        <div class="service-btn">
+        <!-- Stop Button -->
+        <div class="service-btn" (click)="stopContainer(container.Id)">
           Stop
         </div>
       </span>
