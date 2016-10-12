@@ -33,8 +33,9 @@ export class ImagesService {
   removeImage(id: string) {
     return this.http.delete(this.address + this.removeImages.replace("{id}", id))
       .toPromise()
-      .then(this.extractData)
-      .then(this.getRemoveImageResCode)
+      .then(this.getRemoveImageResMsg,
+      this.extractData
+      )
       .catch(this.handleError);
   }
 
@@ -44,8 +45,13 @@ export class ImagesService {
   //404 - no such image
   //409 - conflict
   //500 - server error
-  getRemoveImageResCode(res: Response) {
-    console.log(res.toString());
+  getRemoveImageResMsg(res: Response) {
+    if (res.status) {
+      return "Remove the app successfully";
+    }
+    else {
+      return res.json();
+    }
   }
 
   private extractData(res: Response) {
