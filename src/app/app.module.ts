@@ -11,7 +11,7 @@ import { ContainersErrorComponent } from './containers-error/containers-error.co
 import { ContainersStoppedComponent } from './containers-stopped/containers-stopped.component';
 import { ContainersRunningComponent } from './containers-running/containers-running.component';
 
-import { HttpService } from './http.service';
+import { ImagesService } from './images/images.service';
 import { ContainerService } from './containers/container.service';
 import { routing } from './app.routing';
 
@@ -32,7 +32,7 @@ import { routing } from './app.routing';
     routing,
   ],
   providers: [
-    HttpService,
+    ImagesService,
     ContainerService
   ],
   bootstrap: [AppComponent]

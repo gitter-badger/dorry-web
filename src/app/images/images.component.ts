@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DEFAULTURL, IMAGELIST, ImageUrl } from './mock-images';
-import { HttpService } from '../http.service';
+import { ImagesService } from './images.service';
 import { Observable } from 'rxjs/Observable';
 import { ImageInfo } from './imageInfo';
 
@@ -10,10 +10,12 @@ import { ImageInfo } from './imageInfo';
   styleUrls: ['./images.component.css'],
 })
 export class ImagesComponent implements OnInit {
+  alertMessage: string; // alert dialog message after removing image
+
   imageList: ImageUrl[];
   imageInfoes: ImageInfo[];
 
-  constructor(private httpService: HttpService) { }
+  constructor(private imagesService: ImagesService) { }
 
   ngOnInit() {
     this.imageList = IMAGELIST;
@@ -36,7 +38,7 @@ export class ImagesComponent implements OnInit {
 
   //get json object array from Docker Daemon
   getImageInfoes() {
-    this.httpService.getImageInfoes()
+    this.imagesService.getImageInfoes()
       .then(data => this.imageInfoes = data)
       .then(data => this.initImages());
   }
@@ -44,8 +46,16 @@ export class ImagesComponent implements OnInit {
   //remove image event when click remove button
   removeImage(id: string) {
     let message: string;
-    this.httpService.removeImage(id).then(mgs => this.getImageInfoes());
+    this.imagesService.removeImage(id).then(data => console.log(data)).then(() => this.showMessage()).then(mgs => this.getImageInfoes());
     console.log("remove Image : " + id);
   }
 
+  //show message after removing image
+  //1.success:Remove the app successfully
+  private isVisible: string;
+  showMessage() {
+    this.alertMessage = "Remove the app successfully";
+    this.isVisible = "visible";
+
+  }
 }
