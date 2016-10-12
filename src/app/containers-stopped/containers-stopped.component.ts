@@ -5,7 +5,10 @@ import { ContainerService } from '../containers/container.service';
 @Component({
   selector: 'app-containers-stopped',
   templateUrl: './containers-stopped.component.html',
-  styleUrls: ['./containers-stopped.component.css']
+  styleUrls: [
+    './containers-stopped.component.css',
+    '../containers/containers.component.css'
+  ]
 })
 export class ContainersStoppedComponent implements OnInit {
   containers: Container[];
@@ -16,13 +19,14 @@ export class ContainersStoppedComponent implements OnInit {
     this.getStoppedContainers();
   }
 
-  getStoppedContainers(): void {
+  getStoppedContainers() {
     this.containerService.getStoppedContainers()
-      .then(data => this.containers = data)
-      .then(data => (
-        this.containers[0].iconAssigned = true,
-        this.containers[0].iconUrl = "assets/icons/mysql.png"
-      ));
+      .subscribe(data => this.containers = data);
+  }
+
+  restartContainer(id: string) {
+    this.containerService.restartContainer(id)
+      .then(data => this.getStoppedContainers());
   }
 
 }

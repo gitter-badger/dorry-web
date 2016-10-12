@@ -1,7 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
 import { Headers, Http, Response, Request, RequestMethod, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
 import { Container } from './container';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
 
@@ -10,8 +10,11 @@ export class ContainerService {
   private origin = 'http://localhost:4243';
   private paramRunning = '/containers/json?all=0';
   private paramStopped = '/containers/json?filters={"status":["exited"]}';
+  private paramError = '/containers/json?filters={"status":["exited","dead","restarting"]}';
   private paramAll = '/containers/json?all=1';
   private toBeRemoved = '/containers/{id}?v=1?force=1';
+  private toBeStopped = '/containers/{id}/stop?t=5';
+  private toBeRestarted = '/containers/{id}/restart?t=5';
 
   constructor(private http: Http) { }
 
@@ -26,11 +29,21 @@ export class ContainerService {
       .catch(this.handleError);
   }
 
-  getStoppedContainers(): Promise<Container[]> {
+  getStoppedContainers(): Observable<Container[]> {
     return this.http.request(
       new Request({
         method: RequestMethod.Get,
         url: this.origin + this.paramStopped
+      }))
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getErrorContainers(): Promise<Container[]> {
+    return this.http.request(
+      new Request({
+        method: RequestMethod.Get,
+        url: this.origin + this.paramError
       }))
       .toPromise()
       .then(this.extractData)
@@ -48,15 +61,31 @@ export class ContainerService {
       .catch(this.handleError);
   }
 
-  removeContainer(id: string) {
+  removeContainer(id: string): Promise<Container[]> {
     return this.http.request(
       new Request({
         method: RequestMethod.Delete,
         url: this.origin + this.toBeRemoved.replace("{id}", id)
       }))
-      .toPromise()
-      .then(this.extractData)
-      .catch(this.handleError);
+      .toPromise();
+  }
+
+  stopContainer(id: string): Promise<Container[]> {
+    return this.http.request(
+      new Request({
+        method: RequestMethod.Post,
+        url: this.origin + this.toBeStopped.replace("{id}", id)
+      }))
+      .toPromise();
+  }
+
+  restartContainer(id: string): Promise<Container[]> {
+    return this.http.request(
+      new Request({
+        method: RequestMethod.Post,
+        url: this.origin + this.toBeRestarted.replace("{id}", id)
+      }))
+      .toPromise();
   }
 
   private extractData(res: Response) {

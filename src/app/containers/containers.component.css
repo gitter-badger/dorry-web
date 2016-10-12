@@ -3,4 +3,44 @@
   color: #FFFFFF;
   font-size: 24px;
   font-weight: bold;
+  cursor: default;
+}
+
+.service-list {
+  display: inline-block;
+}
+
+.service-container {
+  padding: 35px 61px 35px 62px;
+}
+
+.service-misc {
+  float: right;
+  margin-left: 9px;
+  position: relative;
+  height: 100%;
+  width: 57px;
+}
+
+.service-name {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
+.service-info {
+  color: #F4F4F4;
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
+.service-btn {
+  cursor: pointer;
 }

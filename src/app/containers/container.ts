@@ -3,4 +3,8 @@ export class Container {
   iconAssigned: boolean;
   // The url of the icon used by the service
   iconUrl: string;
+
+  constructor() {
+    this.iconAssigned = false;
+  }
 }
