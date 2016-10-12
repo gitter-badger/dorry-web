@@ -17,7 +17,8 @@ export class ImagesService {
 
   constructor(private http: Http) { }
 
-  getImageInfoes(): Promise<ImageInfo[]> {
+  //get all image infoes from docker daemon
+  getImageInfoes() {
     return this.http.request(
       new Request({
         method: RequestMethod.Get,

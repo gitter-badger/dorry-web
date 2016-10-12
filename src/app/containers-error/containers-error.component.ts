@@ -27,7 +27,8 @@ export class ContainersErrorComponent implements OnInit {
 
   removeContainer(id: string) {
     this.containerService.removeContainer(id)
-      .then(data => this.getAllContainers());
+      .then();
+    //this.containerService.removeContainer(id).then(() => { });
     console.log(id);
   }
 
