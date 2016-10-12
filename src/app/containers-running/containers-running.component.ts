@@ -13,13 +13,16 @@ export class ContainersRunningComponent implements OnInit {
   constructor(private containerService: ContainerService) { }
 
   ngOnInit(): void {
-    this.getContainers();
+    this.getRunningContainers();
   }
 
-  getContainers(): void {
-    this.containerService.getContainers()
+  getRunningContainers(): void {
+    this.containerService.getRunningContainers()
       .then(data => this.containers = data)
-      .then(data => console.log(this.containers));
+      .then(data => (
+        this.containers[0].iconAssigned = true,
+        this.containers[0].iconUrl = "assets/icons/samba.png"
+      ));
   }
 
 }

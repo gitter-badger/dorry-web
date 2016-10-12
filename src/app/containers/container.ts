@@ -1,4 +1,6 @@
 export class Container {
-  url: string;
-  info: Object[];
+  // Whether the service has an icon
+  iconAssigned: boolean;
+  // The url of the icon used by the service
+  iconUrl: string;
 }
