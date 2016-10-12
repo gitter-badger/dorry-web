@@ -1,0 +1,34 @@
+# Define the language used
+language: node_js
+
+# Multiple versions of the language here
+node_js:
+  - 0.8
+
+# Install dependencies
+before_install:
+  # - sudo apt-get install vim
+
+# Setup the ARM environment, then build and run your Dockerfile
+install:
+  # - sudo apt-get update
+  # - sudo apt-get install -y --no-install-recommends qemu-user-static binfmt-support
+  # - sudo update-binfmts --enable qemu-arm
+  # - sudo update-binfmts --display qemu-arm
+  # - docker build -t $DOCKER_IMAGE:$DOCKER_IMAGE_VERSION .
+
+# Install required packages for testing scripts
+before_script:
+  # - pip install mock
+
+# Define your own tests here
+script:
+  # - python tests.py
+  # - docker images
+
+# After success, push your images to the registry
+after_success:
+  # - if [ "$TRAVIS_BRANCH" == "master" ]; then
+  #   docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com;
+  #   docker push $DOCKER_IMAGE:$DOCKER_IMAGE_VERSION;
+  #   fi

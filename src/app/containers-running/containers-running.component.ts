@@ -24,7 +24,7 @@ export class ContainersRunningComponent implements OnInit {
       .then(data => this.containers = data)
       .then(data => (
         this.containers[0].iconAssigned = true,
-        this.containers[0].iconUrl = "assets/icons/samba.png"
+        this.containers[0].iconUrl = "assets/icons/gitlab.png"
       ));
   }
 
