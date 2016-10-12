@@ -3,6 +3,13 @@ import { DEFAULTURL, IMAGELIST, ImageUrl } from './mock-images';
 import { ImagesService } from './images.service';
 import { Observable } from 'rxjs/Observable';
 import { ImageInfo } from './imageInfo';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate
+} from '@angular/core';
 
 @Component({
   selector: 'app-images',
@@ -10,7 +17,6 @@ import { ImageInfo } from './imageInfo';
   styleUrls: ['./images.component.css'],
 })
 export class ImagesComponent implements OnInit {
-  alertMessage: string; // alert dialog message after removing image
 
   imageList: ImageUrl[];
   imageInfoes: ImageInfo[];
@@ -46,16 +52,22 @@ export class ImagesComponent implements OnInit {
   //remove image event when click remove button
   removeImage(id: string) {
     let message: string;
-    this.imagesService.removeImage(id).then(data => console.log(data)).then(() => this.showMessage()).then(mgs => this.getImageInfoes());
+    this.imagesService.removeImage(id)
+      .then(() => this.showMessage())
+      .then(mgs => this.getImageInfoes());
     console.log("remove Image : " + id);
   }
 
   //show message after removing image
   //1.success:Remove the app successfully
-  private isVisible: string;
+  //2.error: Remove the app error
+  private alertMessage: string; // alert dialog message after removing image
+  private messageState: boolean; // whether need to show the message
   showMessage() {
+    this.messageState = true;
     this.alertMessage = "Remove the app successfully";
-    this.isVisible = "visible";
-
+    setTimeout(function() {
+      this.messageState = false;
+    }.bind(this), 3000);
   }
 }

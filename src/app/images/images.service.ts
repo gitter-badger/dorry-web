@@ -17,7 +17,8 @@ export class ImagesService {
 
   constructor(private http: Http) { }
 
-  getImageInfoes(): Promise<ImageInfo[]> {
+  //get all image infoes from docker daemon
+  getImageInfoes() {
     return this.http.request(
       new Request({
         method: RequestMethod.Get,
@@ -33,7 +34,18 @@ export class ImagesService {
     return this.http.delete(this.address + this.removeImages.replace("{id}", id))
       .toPromise()
       .then(this.extractData)
+      .then(this.getRemoveImageResCode)
       .catch(this.handleError);
+  }
+
+  //get remove image response code
+  //reponse code:
+  //200 - no error
+  //404 - no such image
+  //409 - conflict
+  //500 - server error
+  getRemoveImageResCode(res: Response) {
+    console.log(res.toString());
   }
 
   private extractData(res: Response) {
