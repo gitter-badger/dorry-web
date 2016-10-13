@@ -53,8 +53,8 @@ export class ImagesComponent implements OnInit {
   removeImage(id: string) {
     let message: string;
     this.imagesService.removeImage(id)
-      .then(() => this.showMessage())
-      .then(mgs => this.getImageInfoes());
+      .then(msg => this.showMessage(msg))
+      .then(msg => this.getImageInfoes());
     console.log("remove Image : " + id);
   }
 
@@ -63,9 +63,18 @@ export class ImagesComponent implements OnInit {
   //2.error: Remove the app error
   private alertMessage: string; // alert dialog message after removing image
   private messageState: boolean; // whether need to show the message
-  showMessage() {
+  showMessage(msg: any) {
+    let msgType = typeof msg;
+    let message: string;
+    if (msgType == "string") {
+      message = msg;
+    }
+    else {
+      message = msg.message;
+    }
+
     this.messageState = true;
-    this.alertMessage = "Remove the app successfully";
+    this.alertMessage = message;
     setTimeout(function() {
       this.messageState = false;
     }.bind(this), 3000);
