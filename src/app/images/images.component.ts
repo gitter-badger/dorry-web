@@ -90,6 +90,7 @@ export class ImagesComponent implements OnInit {
   openDetailInfo(app: ImageInfo) {
     this.showInfoWindow = true;
     this.detailApp = app;
+
   }
   closeDetailInfo() {
     this.showInfoWindow = false;
