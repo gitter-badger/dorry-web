@@ -1,7 +1,5 @@
 # DorryWeb
 
-## Project Info
-
 ### Project Description
 Dorry Web is a web interface for Docker Remote API and Docker Registry API. It integrates the functions of managing local docker container and image, pulling and pushing images from docker registry, and setting up an user account.
 
@@ -13,7 +11,7 @@ After pushing to Github, [Travis CI](https://travis-ci.org/) will run all the te
 
 ----
 
-## Angular Cli user guide
+# Angular Cli user guide
 
 ### Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
