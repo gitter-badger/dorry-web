@@ -63,14 +63,17 @@ export class ImagesComponent implements OnInit {
   //2.error: Remove the app error
   private alertMessage: string; // alert dialog message after removing image
   private messageState: boolean; // whether need to show the message
+  private isError: boolean;//is message correctly
   showMessage(msg: any) {
     let msgType = typeof msg;
     let message: string;
     if (msgType == "string") {
       message = msg;
+      this.isError = false;
     }
     else {
       message = msg.message;
+      this.isError = true;
     }
 
     this.messageState = true;
@@ -78,5 +81,17 @@ export class ImagesComponent implements OnInit {
     setTimeout(function() {
       this.messageState = false;
     }.bind(this), 3000);
+  }
+
+
+  //click image icon show image info
+  private showInfoWindow: boolean; //whether need to show imageinfo popup window
+  private detailApp: ImageInfo;//the app need to show detail
+  openDetailInfo(app: ImageInfo) {
+    this.showInfoWindow = true;
+    this.detailApp = app;
+  }
+  closeDetailInfo() {
+    this.showInfoWindow = false;
   }
 }

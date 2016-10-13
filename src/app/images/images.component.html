@@ -23,6 +23,7 @@
 
 <!-- <div [@messageState]="messageState" class="alert alert-success" role="alert">{{alertMessage}}</div> -->
 <div *ngIf="messageState" class="alert alert-success" role="alert">{{alertMessage}}</div>
+<div *ngIf="messageState && isError" class="alert alert-danger" role="alert">{{alertMessage}}</div>
 <div class="applist-container">
   <div class="app-list" *ngFor="let app of imageInfoes">
     <div class="app-container">
@@ -30,7 +31,7 @@
         <div class="app-removebtn" (click)="removeImage(app.Id)">
           <img src="assets/icons/close.png"/>
         </div>
-        <img src={{app.url}} style="height:90px;width:90px;"/>
+        <img (click)="openDetailInfo(app)" src={{app.url}} style="height:90px;width:90px;"/>
         <!-- <img src="assets/icons/default.png" style="height:90px;width:90px;"/> -->
       </div>
       <!-- name of the app -->
@@ -40,6 +41,41 @@
       <!-- start app button part -->
       <div class="app-btn">
         Start New
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- image detail info -->
+<div class="modal-dialog" *ngIf="showInfoWindow">
+  <div class="modal-content">
+    <!-- <button class="detail-close" type="button" data-dismiss="modal" aria-hidden="true" (click)="closeDetailInfo()">×</button> -->
+    <div class="modal-body">
+      <img class="detail-close" src="assets/detailclose.png" (click)="closeDetailInfo()"/>
+      <div class="detail-header-container">
+        <img class="detail-image" src={{detailApp.url}} style="height:67px;width:67px;"/>
+        <div class="detail-app-name">
+          {{detailApp.RepoTags[0]}}
+        </div>
+      </div>
+      <hr>
+      <div class="detail-info-container">
+        <div class="detail-info-left">
+          <ul>
+            <div>Created Date:</div>
+            <div>ID:</div>
+            <div>Registory:</div>
+            <div>VirtualSize:</div>
+          </ul>
+        </div>
+        <div class="detail-info-right">
+          <ul>
+            <div>{{detailApp.Created}}</div>
+            <div>{{detailApp.Id}}</div>
+            <div>{{detailApp.RepoTags[0]}}</div>
+            <div>{{detailApp.VirtualSize}}</div>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
