@@ -11,7 +11,7 @@ After pushing to Github, [Travis CI](https://travis-ci.org/) will run all the te
 
 ----
 
-# Angular Cli user guide
+# Angular Cli
 
 ### Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
