@@ -23,13 +23,13 @@ import { routing } from './app.routing';
     ImagesComponent,
     ContainersErrorComponent,
     ContainersStoppedComponent,
-    ContainersRunningComponent,
+    ContainersRunningComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing,
+    routing
   ],
   providers: [
     ImagesService,

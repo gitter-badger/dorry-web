@@ -38,7 +38,7 @@
 }
 
 .icon-wrong {
-  z-index: 3;
+  z-index: 2;
   position: relative;
   height: 0;
   left: -8px;
@@ -48,4 +48,74 @@
 .icon-service {
   z-index: 1;
   position: relative;
+}
+
+.alert-dialog {
+  background: rgba(66, 65, 65, 0.9);
+  z-index: 50;
+  /* blur filters */
+  -webkit-filter: blur(27px);
+  -moz-filter: blur(27px);
+  -o-filter: blur(27px);
+  -ms-filter: blur(27px);
+  filter: blur(27px);
+}
+
+.alert-content {
+  background: rgba(66, 65, 65, 0);
+  z-index: 100;
+}
+
+.alert-dialog-style {
+  height: 273px;
+  width: 550px;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.alert-body {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  top: 44px;
+  left: 42px;
+  padding: 0;
+}
+
+.alert-footer {
+  border-top: 0;
+  margin: 4px;
+  position: absolute;
+  bottom: 0;
+  top: 190px;
+  left: 315px;
+}
+
+.alert-message {
+  padding-left: 20px;
+}
+
+.btn-alert {
+  height: 24px;
+  width: 74px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 0;
+  padding: 0 4px;
+}
+
+.btn-yes {
+  background: rgba(218, 218, 218, 0.41);
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.btn-no {
+  background: rgb(151, 151, 151);
+  color: rgba(255, 255, 255, 0.70);
 }

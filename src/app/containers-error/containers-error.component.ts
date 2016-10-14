@@ -12,11 +12,16 @@ import { ContainerService } from '../containers/container.service';
 })
 export class ContainersErrorComponent implements OnInit {
   containers: Container[];
+  showAlert: boolean;
+  showAlertAll: boolean;
+  containerId: string;
 
   constructor(private containerService: ContainerService) { }
 
   ngOnInit(): void {
     this.getErrorContainers();
+    this.showAlert = false;
+    this.showAlertAll = false;
   }
 
   getErrorContainers() {
@@ -39,4 +44,25 @@ export class ContainersErrorComponent implements OnInit {
       });
   }
 
+  displayAlert(id: string) {
+    this.showAlert = true;
+    this.showAlertAll = false;
+  }
+
+  hideAlert(id: string) {
+    this.showAlert = false;
+  }
+
+  displayAlertAll() {
+    this.showAlertAll = true;
+    this.showAlert = false;
+  }
+
+  hideAlertAll() {
+    this.showAlertAll = false;
+  }
+
+  getContainerId(id: string) {
+    this.containerId = id;
+  }
 }
