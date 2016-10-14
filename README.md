@@ -9,7 +9,7 @@ This project is developed by Angular 2 and generated with [angular-cli](https://
 ### CI/CD and Testing
 After pushing to Github, [Travis CI](https://travis-ci.org/) will run all the tests and information can be check on your Travis CI account. The tool for unit testing used by DorryWeb is Karma.
 
-----
+---
 
 # Angular Cli
 

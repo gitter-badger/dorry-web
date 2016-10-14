@@ -1,13 +1,12 @@
 <div class="service-list-container">
   <div class="error-service-header">
-    <span class="service-header-left">There are something wrong, please check them.</span>
-    <span class="service-header-right" (click)="removeAll()">
+    <span class="service-header-left">Oops! Something wrong</span>
+    <span class="service-header-right" (click)="toggleAlertAll()">
       <img src="assets/trash.png" style="margin:0"/>
       Remove All
     </span>
   </div>
   <div class="service-list" *ngFor="let container of containers">
-
     <div class="service-container">
       <span class="service-icon" [ngSwitch]="container.iconAssigned">
         <div class="icon-wrong">
@@ -32,11 +31,42 @@
           {{container.Ports[0].PublicPort}}
         </div>
         <!-- Remove Button -->
-        <div class="service-btn" (click)="removeContainer(container.Id)">
+        <div class="service-btn" (click)="toggleAlert()" (click)="getContainerId(container.Id)">
           Remove
         </div>
       </span>
     </div>
+  </div>
+</div>
 
+<!-- The alert dialog for remove one service -->
+<div class="alert-dialog modal-dialog" *ngIf="showAlert">
+  <div class="alert-content modal-content">
+    <div class="alert-body modal-body">
+      <span>
+        <img src="assets/alert.png"/>
+        <span class="alert-message">Are you sure to remove this service?</span>
+      </span>
+    </div>
+    <div class="alert-footer modal-footer">
+      <button type="button" class="btn btn-alert btn-yes" data-dismiss="modal" (click)="removeContainer(containerId)" (click)="toggleAlert()">Yes</button>
+      <button type="button" class="btn btn-alert btn-no" data-dismiss="modal" (click)="toggleAlert()">No</button>
+    </div>
+  </div>
+</div>
+
+<!-- The alert dialog for remove all services -->
+<div class="alert-dialog modal-dialog" *ngIf="showAlertAll">
+  <div class="alert-content modal-content">
+    <div class="alert-body modal-body">
+      <span>
+        <img src="assets/alert.png"/>
+        <span class="alert-message">Are you sure to remove all services?</span>
+      </span>
+    </div>
+    <div class="alert-footer modal-footer">
+      <button type="button" class="btn btn-alert btn-yes" data-dismiss="modal" (click)="removeAll()" (click)="toggleAlertAll()">Yes</button>
+      <button type="button" class="btn btn-alert btn-no" data-dismiss="modal" (click)="toggleAlertAll()">No</button>
+    </div>
   </div>
 </div>
