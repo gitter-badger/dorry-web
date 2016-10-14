@@ -50,6 +50,7 @@
   height: 0;
   left: 43px;
   top: -8px;
+  cursor: pointer;
 }
 
 .alert {
@@ -61,4 +62,74 @@
   top: 90px;
   padding-left: 60px;
   padding-right: 60px;
+}
+/* popup box - image detail info box part */
+.modal-content {
+  width: 478px;
+  height: 428px;
+  background: rgba(0,0,0,0.48);
+}
+
+.detail-image {
+  margin-left: 27px;
+  margin-right: 18px;
+  border-radius: 16px;
+  float: left;
+}
+
+.detail-app-name {
+  line-height: 67px;
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  font-size: 20px;
+  float: left;
+}
+
+.detail-header-container {
+  height: 67px;
+  margin-top: 46px;
+}
+
+.modal-body hr {
+  margin-top: 32px;
+  margin-bottom: 35px;
+  border-color: rgba(0, 0, 0, 0.32);
+  border-top: 1px,thick;
+}
+
+.detail-info-container {
+  margin-left: 45px;
+  margin-right: 45px;
+  color: #fff;
+  opacity: 0.69;
+}
+
+.detail-info-container ul {
+  padding-left: 0;
+}
+
+.detail-info-left {
+  line-height: 32px;
+  float: left;
+  font-size: 16px;
+}
+
+.detail-info-right {
+  text-align: right;
+  line-height: 32px;
+  float: right;
+  width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detail-close {
+  float: right;
+  cursor: pointer;
 }

@@ -12,8 +12,9 @@ export class ImagesService {
 
 
   //docker remote api part
-  private listImages = '/images/json?all=0';//[GET]  list images
-  private removeImages = '/images/{id}?force=1';//[DELETE]  remove image ,add image id after the url
+  private list = '/images/json?all=0';//[GET]  list images
+  private remove = '/images/{id}?force=1';//[DELETE]  remove image ,add image id after the url
+  private inspect = '/images/{id}/json';//[GET] inspect image;
 
   constructor(private http: Http) { }
 
@@ -22,7 +23,7 @@ export class ImagesService {
     return this.http.request(
       new Request({
         method: RequestMethod.Get,
-        url: this.address + this.listImages
+        url: this.address + this.list
       }))
       .toPromise()
       .then(this.extractData)
@@ -31,11 +32,19 @@ export class ImagesService {
 
   //remove image by image id
   removeImage(id: string) {
-    return this.http.delete(this.address + this.removeImages.replace("{id}", id))
+    return this.http.delete(this.address + this.remove.replace("{id}", id))
       .toPromise()
       .then(this.getRemoveImageResMsg,
       this.extractData
       )
+      .catch(this.handleError);
+  }
+
+  //inspect image by image id
+  inspectImage(id: string) {
+    return this.http.get(this.address + this.remove.replace("{id}", id))
+      .toPromise()
+      .then(this.extractData)
       .catch(this.handleError);
   }
 
