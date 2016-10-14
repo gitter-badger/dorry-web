@@ -10,6 +10,7 @@
   color: #FFFFFF;
   font-size: 24px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .service-header-right {
