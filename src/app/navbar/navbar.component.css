@@ -35,7 +35,13 @@
   padding-left: 87px;
 }
 
-.header {
+.content {
+  min-height: 836px;
+  display: inline-block;
+  width: 100%;
+}
+
+.mathead {
   height: 60px;
   width: 100%;
   background: rgba(0, 0, 0, 0.16);
@@ -45,12 +51,6 @@
   color: white;
   text-align: right;
   padding-right: 68px;
-}
-
-.content {
-  min-height: 846px;
-  display: inline-block;
-  width: 100%;
 }
 
 .footer {

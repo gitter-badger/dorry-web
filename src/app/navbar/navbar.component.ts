@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarBtn } from './navbtn';
+import { MastheadComponent } from '../masthead/masthead.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-navbar',
