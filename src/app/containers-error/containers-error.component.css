@@ -67,8 +67,8 @@
 }
 
 .alert-dialog-style {
-  height: 273px;
-  width: 550px;
+  height: 237px;
+  width: 500px;
   border-radius: 10px;
   position: absolute;
   left: 0;
@@ -91,9 +91,9 @@
   border-top: 0;
   margin: 4px;
   position: absolute;
-  bottom: 0;
-  top: 190px;
-  left: 315px;
+  bottom: 23px;
+  right: 29px;
+  padding: 0;
 }
 
 .alert-message {
@@ -110,12 +110,18 @@
   padding: 0 4px;
 }
 
+.btn-alert:hover {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #979797;
+}
+
 .btn-yes {
   background: rgba(218, 218, 218, 0.41);
   color: rgba(255, 255, 255, 0.62);
 }
 
 .btn-no {
-  background: rgb(151, 151, 151);
+  background: rgba(218, 218, 218, 0.41);
   color: rgba(255, 255, 255, 0.70);
 }
