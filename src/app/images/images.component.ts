@@ -88,10 +88,22 @@ export class ImagesComponent implements OnInit {
   private showInfoWindow: boolean; //whether need to show imageinfo popup window
   private detailApp: ImageInfo;//the app need to show detail
   openDetailInfo(app: ImageInfo) {
+    console.log(app.Id);
     this.showInfoWindow = true;
     this.detailApp = app;
-
+    this.imagesService.inspectImage(app.Id)
+      .then(data => this.detailApp.createDate = this.formatCreatedTime(data.Created));
   }
+
+  //format the create time of image
+  //Input: 2016-09-23T16:29:57.276868291Z,etc
+  //Output: string 2016-09-23 16:29:57
+  formatCreatedTime(created: string) {
+    let datetime: string;
+    datetime = created.split(".")[0].replace("T", " ");
+    return datetime;
+  }
+
   closeDetailInfo() {
     this.showInfoWindow = false;
   }
