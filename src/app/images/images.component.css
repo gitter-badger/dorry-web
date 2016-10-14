@@ -35,7 +35,6 @@
   font-size: 9px;
   font-weight: bold;
   border-radius: 5px;
-  height: 20px;
   width: 58px;
   margin: auto;
   text-align: center;
@@ -173,7 +172,7 @@
   height: 237px;
   width: 500px;
   border-radius: 10px;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
