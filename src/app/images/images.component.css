@@ -8,7 +8,10 @@
   display: inline-block;
   overflow: auto;
 }
+
+
 /*app part : app container;app img ;app name*/
+
 .app-container {
   text-align: center;
   padding: 35px 67px 0;
@@ -54,27 +57,34 @@
 }
 
 .alert {
-  /*visibility: hidden;*/
   opacity: 0.7;
   position: absolute;
   z-index: 4;
-  left: 50%;
+  left: 0;
+  right: 0;
   top: 90px;
-  padding-left: 60px;
-  padding-right: 60px;
+  margin: auto;
+  line-height: 2em;
+  width: 600px;
+  text-align: center;
 }
-/* popup box - image detail info box part */
-.modal-dialog {
+
+
+/* popup box - image details info box part */
+
+.image-details {
   margin: auto;
   position: absolute;
   left: 0;
   right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .modal-content {
   width: 478px;
   height: 428px;
-  background: rgba(0,0,0,0.48);
+  background: rgba(0, 0, 0, 0.48);
 }
 
 .detail-image {
@@ -86,10 +96,10 @@
 
 .detail-app-name {
   line-height: 67px;
-  width: 150px;
+  width: 280px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-align: center;
   font-weight: bold;
   color: #fff;
   font-size: 20px;
@@ -105,7 +115,7 @@
   margin-top: 32px;
   margin-bottom: 35px;
   border-color: rgba(0, 0, 0, 0.32);
-  border-top: 1px,thick;
+  border-top: 1px, thick;
 }
 
 .detail-info-container {
@@ -138,4 +148,83 @@
 .detail-close {
   float: right;
   cursor: pointer;
+}
+
+
+/* alert dialog css style */
+
+.alert-dialog {
+  background: rgba(66, 65, 65, 0.9);
+  z-index: 50;
+  /* blur filters */
+  -webkit-filter: blur(27px);
+  -moz-filter: blur(27px);
+  -o-filter: blur(27px);
+  -ms-filter: blur(27px);
+  filter: blur(27px);
+}
+
+.alert-content {
+  background: rgba(66, 65, 65, 0);
+  z-index: 100;
+}
+
+.alert-dialog-style {
+  height: 237px;
+  width: 500px;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.alert-body {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  top: 44px;
+  left: 42px;
+  padding: 0;
+}
+
+.alert-footer {
+  border-top: 0;
+  margin: 4px;
+  position: absolute;
+  bottom: 23px;
+  right: 29px;
+  padding: 0;
+}
+
+.alert-message {
+  padding-left: 20px;
+}
+
+.btn-alert {
+  height: 24px;
+  width: 74px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 0;
+  padding: 0 4px;
+}
+
+.btn-alert:hover {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #979797;
+}
+
+.btn-yes {
+  background: rgba(218, 218, 218, 0.41);
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.btn-no {
+  background: rgba(218, 218, 218, 0.41);
+  color: rgba(255, 255, 255, 0.70);
 }

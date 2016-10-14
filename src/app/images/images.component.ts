@@ -21,11 +21,15 @@ export class ImagesComponent implements OnInit {
   imageList: ImageUrl[];
   imageInfoes: ImageInfo[];
 
+  showAlert: boolean;
+  imageId: string;
+
   constructor(private imagesService: ImagesService) { }
 
   ngOnInit() {
     this.imageList = IMAGELIST;
     this.getImageInfoes();
+    this.showAlert = false;
   }
 
   //bindding the ImageInfo and image url
@@ -78,9 +82,9 @@ export class ImagesComponent implements OnInit {
 
     this.messageState = true;
     this.alertMessage = message;
-    setTimeout(function() {
-      this.messageState = false;
-    }.bind(this), 3000);
+    // setTimeout(function() {
+    //   this.messageState = false;
+    // }.bind(this), 3000);
   }
 
 
@@ -106,5 +110,17 @@ export class ImagesComponent implements OnInit {
 
   closeDetailInfo() {
     this.showInfoWindow = false;
+  }
+
+  displayAlert(id: string) {
+    this.showAlert = true;
+  }
+
+  hideAlert(id: string) {
+    this.showAlert = false;
+  }
+
+  getImageId(id: string) {
+    this.imageId = id;
   }
 }
