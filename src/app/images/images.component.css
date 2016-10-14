@@ -9,6 +9,10 @@
   overflow: auto;
 }
 
+.app-img {
+  cursor: pointer;
+}
+
 
 /*app part : app container;app img ;app name*/
 

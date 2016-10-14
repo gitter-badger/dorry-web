@@ -21,11 +21,7 @@ export class ContainersRunningComponent implements OnInit {
 
   getRunningContainers() {
     this.containerService.getRunningContainers()
-      .then(data => this.containers = data)
-      .then(data => (
-        this.containers[0].iconAssigned = true,
-        this.containers[0].iconUrl = "assets/icons/gitlab.png"
-      ));
+      .then(data => this.containers = data);
   }
 
   stopContainer(id: string) {
