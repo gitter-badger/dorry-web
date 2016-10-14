@@ -41,8 +41,10 @@ export class ImagesService {
   }
 
   //inspect image by image id
+  //get the json object after call the function
+  //the create form : 2016-09-23T16:29:57.276868291Z 
   inspectImage(id: string) {
-    return this.http.get(this.address + this.remove.replace("{id}", id))
+    return this.http.get(this.address + this.inspect.replace("{id}", id))
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);

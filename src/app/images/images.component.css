@@ -64,6 +64,13 @@
   padding-right: 60px;
 }
 /* popup box - image detail info box part */
+.modal-dialog {
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
 .modal-content {
   width: 478px;
   height: 428px;
@@ -82,7 +89,6 @@
   width: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
   text-align: center;
   font-weight: bold;
   color: #fff;
