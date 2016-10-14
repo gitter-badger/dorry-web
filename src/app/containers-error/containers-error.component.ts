@@ -44,22 +44,22 @@ export class ContainersErrorComponent implements OnInit {
       });
   }
 
-  toggleAlert(id: string) {
-    if (this.showAlert == true)
-      this.showAlert = false;
-    else if (this.showAlert == false) {
-      this.showAlert = true;
-      this.showAlertAll = false;
-    }
+  displayAlert(id: string) {
+    this.showAlert = true;
+    this.showAlertAll = false;
   }
 
-  toggleAlertAll() {
-    if (this.showAlertAll == true)
-      this.showAlertAll = false;
-    else if (this.showAlertAll == false) {
-      this.showAlertAll = true;
-      this.showAlert = false;
-    }
+  hideAlert(id: string) {
+    this.showAlert = false;
+  }
+
+  displayAlertAll() {
+    this.showAlertAll = true;
+    this.showAlert = false;
+  }
+
+  hideAlertAll() {
+    this.showAlertAll = false;
   }
 
   getContainerId(id: string) {

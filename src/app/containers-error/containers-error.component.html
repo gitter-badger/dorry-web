@@ -1,7 +1,7 @@
 <div class="service-list-container">
   <div class="error-service-header">
     <span class="service-header-left">Oops! Something wrong</span>
-    <span class="service-header-right" (click)="toggleAlertAll()">
+    <span class="service-header-right" (click)="displayAlertAll()">
       <img src="assets/trash.png" style="margin:0"/>
       Remove All
     </span>
@@ -31,7 +31,7 @@
           {{container.Ports[0].PublicPort}}
         </div>
         <!-- Remove Button -->
-        <div class="service-btn" (click)="toggleAlert()" (click)="getContainerId(container.Id)">
+        <div class="service-btn" (click)="displayAlert()" (click)="getContainerId(container.Id)">
           Remove
         </div>
       </span>
@@ -40,33 +40,31 @@
 </div>
 
 <!-- The alert dialog for remove one service -->
-<div class="alert-dialog modal-dialog" *ngIf="showAlert">
-  <div class="alert-content modal-content">
-    <div class="alert-body modal-body">
-      <span>
-        <img src="assets/alert.png"/>
-        <span class="alert-message">Are you sure to remove this service?</span>
-      </span>
-    </div>
-    <div class="alert-footer modal-footer">
-      <button type="button" class="btn btn-alert btn-yes" data-dismiss="modal" (click)="removeContainer(containerId)" (click)="toggleAlert()">Yes</button>
-      <button type="button" class="btn btn-alert btn-no" data-dismiss="modal" (click)="toggleAlert()">No</button>
-    </div>
+<div class="alert-dialog alert-dialog-style modal-dialog" *ngIf="showAlert"></div>
+<div class="alert-content alert-dialog-style modal-content" *ngIf="showAlert">
+  <div class="alert-body modal-body">
+    <span>
+      <img src="assets/alert.png"/>
+      <span class="alert-message">Are you sure to remove this service?</span>
+    </span>
+  </div>
+  <div class="alert-footer modal-footer">
+    <button type="button" class="btn btn-alert btn-yes" data-dismiss="modal" (click)="removeContainer(containerId)" (click)="hideAlert()">Yes</button>
+    <button type="button" class="btn btn-alert btn-no" data-dismiss="modal" (click)="hideAlert()">No</button>
   </div>
 </div>
 
 <!-- The alert dialog for remove all services -->
-<div class="alert-dialog modal-dialog" *ngIf="showAlertAll">
-  <div class="alert-content modal-content">
-    <div class="alert-body modal-body">
-      <span>
-        <img src="assets/alert.png"/>
-        <span class="alert-message">Are you sure to remove all services?</span>
-      </span>
-    </div>
-    <div class="alert-footer modal-footer">
-      <button type="button" class="btn btn-alert btn-yes" data-dismiss="modal" (click)="removeAll()" (click)="toggleAlertAll()">Yes</button>
-      <button type="button" class="btn btn-alert btn-no" data-dismiss="modal" (click)="toggleAlertAll()">No</button>
-    </div>
+<div class="alert-dialog alert-dialog-style modal-dialog" *ngIf="showAlertAll"></div>
+<div class="alert-content alert-dialog-style modal-content" *ngIf="showAlertAll">
+  <div class="alert-body modal-body">
+    <span>
+      <img src="assets/alert.png"/>
+      <span class="alert-message">Are you sure to remove all services?</span>
+    </span>
+  </div>
+  <div class="alert-footer modal-footer">
+    <button type="button" class="btn btn-alert btn-yes" data-dismiss="modal" (click)="removeAll()" (click)="hideAlertAll()">Yes</button>
+    <button type="button" class="btn btn-alert btn-no" data-dismiss="modal" (click)="hideAlertAll()">No</button>
   </div>
 </div>

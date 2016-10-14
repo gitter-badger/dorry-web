@@ -50,20 +50,32 @@
   position: relative;
 }
 
-.modal-dialog {
-  position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
-  z-index: 3;
+.alert-dialog {
+  background: rgba(66, 65, 65, 0.9);
+  z-index: 50;
+  /* blur filters */
+  -webkit-filter: blur(27px);
+  -moz-filter: blur(27px);
+  -o-filter: blur(27px);
+  -ms-filter: blur(27px);
+  filter: blur(27px);
 }
 
 .alert-content {
+  background: rgba(66, 65, 65, 0);
+  z-index: 100;
+}
+
+.alert-dialog-style {
   height: 273px;
   width: 550px;
   border-radius: 10px;
-  background: rgba(66, 65, 65, 0.32);
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }
 
 .alert-body {
