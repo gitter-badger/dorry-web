@@ -6,7 +6,6 @@
 FROM node:latest
 
 WORKDIR /dorry-web
-
 COPY . /dorry-web/
 
 CMD npm start
