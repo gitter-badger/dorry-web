@@ -4,7 +4,7 @@
 #  $ docker run -it --rm -p 4200:4200 dorry-web
 #
 #FROM node:latest
- FROM hypriot/rpi-node:latest
+FROM hypriot/rpi-node:latest
 
 WORKDIR /dorry-web
 COPY . /dorry-web/
