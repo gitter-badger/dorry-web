@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class ContainerService {
-  private origin = 'http://localhost:4243';
+  private origin = 'http://192.168.10.78:4243';
   private paramRunning = '/containers/json?all=0';
   private paramStopped = '/containers/json?filters={"status":["exited"]}';
   private paramError = '/containers/json?filters={"status":["exited","dead","restarting"]}';
@@ -61,7 +61,7 @@ export class ContainerService {
       .catch(this.handleError);
   }
 
-  removeContainer(id: string): Promise<Container[]> {
+  removeContainer(id: string) {
     return this.http.request(
       new Request({
         method: RequestMethod.Delete,
@@ -70,7 +70,7 @@ export class ContainerService {
       .toPromise();
   }
 
-  stopContainer(id: string): Promise<Container[]> {
+  stopContainer(id: string) {
     return this.http.request(
       new Request({
         method: RequestMethod.Post,
@@ -79,7 +79,7 @@ export class ContainerService {
       .toPromise();
   }
 
-  restartContainer(id: string): Promise<Container[]> {
+  restartContainer(id: string) {
     return this.http.request(
       new Request({
         method: RequestMethod.Post,
