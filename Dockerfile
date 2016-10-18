@@ -2,6 +2,8 @@ FROM drakerin/rpi-alpine-nginx
 
 WORKDIR /dorry-web
 COPY ./dist/ /dorry-web/
-RUN npm install
+COPY default.conf /etc/nginx/default.conf
+RUN chown root /etc/nginx/default.conf && \
+    chgrp root /etc/nginx/default.conf
 
-CMD npm start
+CMD ["/bin/sh", "/start-nginx.sh"]
