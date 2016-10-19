@@ -1,7 +1,9 @@
-FROM hypriot/rpi-node:latest
+FROM drakerin/rpi-alpine-nginx
 
 WORKDIR /dorry-web
-COPY . /dorry-web/
-RUN npm install
+COPY ./dist/ /dorry-web/
+COPY default.conf /etc/nginx/conf.d/default.conf
+RUN chown root /etc/nginx/conf.d/default.conf && \
+    chgrp root /etc/nginx/conf.d/default.conf
 
-CMD npm start
+CMD ["/bin/sh", "/start-nginx.sh"]
