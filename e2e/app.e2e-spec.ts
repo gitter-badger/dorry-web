@@ -2,6 +2,11 @@ import { DorryWebPage } from './app.po';
 
 describe('dorry-web App', function() {
   let page: DorryWebPage;
+  // Service button events testing flags
+  var testServiceBtn = false;
+  var testRemoveAll = false;
+  // App button events testing flags
+  var testAppBtn = true;
 
   beforeEach(() => {
     page = new DorryWebPage();
@@ -22,7 +27,8 @@ describe('dorry-web App', function() {
 
   it('should display error service header', () => {
     page.navigateToService();
-    expect(page.getErrorServiceHeader()).toEqual('Oops! There Is Something Wrong');
+    expect(page.getErrorServiceHeader())
+      .toEqual('Oops! There Is Something Wrong');
   });
 
   it('should display remove all button', () => {
@@ -40,26 +46,56 @@ describe('dorry-web App', function() {
     expect(page.getRunningServiceHeader()).toEqual('Running Service');
   });
 
+  /***************************************************************************
+   * Testing click events of services
+   **************************************************************************/
+  if (testServiceBtn) {
+    it('should stop the first running service', () => {
+      page.navigateToService();
+      page.stopService(2);
+    });
 
+    it('should restart the first stopped service', () => {
+      page.navigateToService();
+      page.restartService(2);
+    });
+
+    it('should remove the first Error service', () => {
+      page.navigateToService();
+      page.removeService(2);
+      page.clickYes();
+    });
+
+    if (testRemoveAll) {
+      it('should remove all services', () => {
+        page.navigateToService();
+        page.removeAll();
+        page.clickYes();
+        expect(page.getErrorServiceCount()).toEqual(0);
+      });
+    }
+  }
 
   /***************************************************************************
-   * Testing click events
+   ***************************************************************************
+   ***************************************************************************
+   ***************************************************************************
+   ***************************************************************************
+   ***************************************************************************/
+
+  /***************************************************************************
+   * Testing click events of apps
    **************************************************************************/
-  it('should remove the first Error service', () => {
-    page.navigateToService();
-    // expect(page.getErrorServiceCount()).toEqual(6);
-  });
+  if (testAppBtn) {
+    it('should display then close the app details', () => {
+      page.navigateToApp();
+      page.checkAppDetails();
+      page.closeDetails();
+    });
 
-  it('should remove all services', () => {
-    page.navigateToService();
-    page.removeAll();
-    // expect(page.getErrorServiceCount()).toEqual(0);
-    expect(page.removeAll()).toEqual('Remove All');
-  });
-
-  it('should restart the first stopped service', () => {
-    page.navigateToService();
-    // expect(page.getRunningServiceCount()).toEqual(6);
-    // expect(page.getStoppedServiceCount()).toEqual(6);
-  });
+    it('should remove an app', () => {
+      page.navigateToApp();
+      page.removeApp();
+    });
+  }
 });
