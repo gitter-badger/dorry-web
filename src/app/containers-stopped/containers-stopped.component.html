@@ -1,6 +1,6 @@
 <div class="service-list-container">
   <div class="service-list" *ngFor="let container of containers">
-    <div class="service-container">
+    <div class="service-container stopped-service-container">
       <!-- Service icon -->
       <span class="service-img" [ngSwitch]="container.iconAssigned">
         <img *ngSwitchCase="true" src={{container.iconUrl}} style="height:71px; width:71px"/>
