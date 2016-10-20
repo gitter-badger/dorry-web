@@ -30,15 +30,15 @@ describe('dorry-web App', function() {
     expect(page.getRemoveAll()).toEqual('Remove All');
   });
 
-  it('should display stopped service header', () => {
-    page.navigateToService();
-    expect(page.getStoppedServiceHeader()).toEqual('Stopped Service');
-  });
-
-  it('should display running service header', () => {
-    page.navigateToService();
-    expect(page.getRunningServiceHeader()).toEqual('Running Service');
-  });
+  // it('should display stopped service header', () => {
+  //   page.navigateToService();
+  //   expect(page.getStoppedServiceHeader()).toEqual('Stopped Service');
+  // });
+  //
+  // it('should display running service header', () => {
+  //   page.navigateToService();
+  //   expect(page.getRunningServiceHeader()).toEqual('Running Service');
+  // });
 
 
 

@@ -62,8 +62,8 @@ export class DorryWebPage {
    * Removing, restarting and stoppping a service
    **************************************************************************/
   removeAll() {
+    element(by.css('.error-service-header .service-header-right')).click();
     return element(by.css('.error-service-header .service-header-right')).getText();
-    // element(by.css('.error-service-header .service-header-right')).click();
   }
 
   removeService(index: number) { }
@@ -71,4 +71,5 @@ export class DorryWebPage {
   stopService(index: number) { }
 
   restartService(index: number) { }
+
 }
