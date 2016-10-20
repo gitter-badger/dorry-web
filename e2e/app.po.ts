@@ -104,8 +104,5 @@ export class DorryWebPage {
    **************************************************************************/
   removeApp() {
     // element(by.css('.app-removebtn')).click();
-
-    // var elem = element(by.css('.app-removebtn'));
-    // browser.actions().mouseMove(elem).click().perform();
   }
 }
