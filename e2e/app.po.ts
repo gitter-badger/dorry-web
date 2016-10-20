@@ -28,48 +28,88 @@ export class DorryWebPage {
   }
 
   getErrorServiceHeader() {
-    return element(by.css('div.error-service-header span.service-header-left')).getText();
+    return element(by.css('.error-service-header .service-header-left')).getText();
   }
 
   getRemoveAll() {
-    return element(by.css('div.error-service-header span.service-header-right')).getText();
+    return element(by.css('.error-service-header .service-header-right')).getText();
   }
 
   getStoppedServiceHeader() {
-    return element(by.css('div.stopped-service-header')).getText();
+    return element(by.css('.stopped-service-header')).getText();
   }
 
   getRunningServiceHeader() {
-    return element(by.css('div.running-service-header')).getText();
+    return element(by.css('.running-service-header')).getText();
   }
 
   /***************************************************************************
    * Counting services in status of error, stopped and running
    **************************************************************************/
   getErrorServiceCount() {
-    return element.all(by.css('div.error-service-container')).count();
+    return element.all(by.css('.error-service-container')).count();
   }
 
   getStoppedServiceCount() {
-    return element.all(by.css('div.stopped-service-container')).count();
+    return element.all(by.css('.stopped-service-container')).count();
   }
 
   getRunningServiceCount() {
-    return element.all(by.css('div.running-service-container')).count();
+    return element.all(by.css('.running-service-container')).count();
   }
 
   /***************************************************************************
    * Removing, restarting and stoppping a service
    **************************************************************************/
-  removeAll() {
-    element(by.css('.error-service-header .service-header-right')).click();
-    return element(by.css('.error-service-header .service-header-right')).getText();
+  stopService(index: number) {
+    element(by.css('.service-btn-stop')).click();
   }
 
-  removeService(index: number) { }
+  restartService(index: number) {
+    element(by.css('.service-btn-restart')).click();
+  }
 
-  stopService(index: number) { }
+  removeService(index: number) {
+    element(by.css('.service-btn-remove')).click();
+  }
 
-  restartService(index: number) { }
+  removeAll() {
+    element(by.css('.error-service-header .service-header-right')).click();
+  }
 
+  clickYes() {
+    element(by.css('.btn-yes')).click();
+  }
+
+  clickNo() {
+    element(by.css('.btn-no')).click();
+  }
+
+  /***************************************************************************
+   ***************************************************************************
+   ***************************************************************************
+   ***************************************************************************
+   ***************************************************************************
+   ***************************************************************************/
+
+  /***************************************************************************
+   * Checking app details
+   **************************************************************************/
+  checkAppDetails() {
+    element(by.css('.app-details')).click();
+  }
+
+  /***************************************************************************
+   * Closing the detail panel
+   **************************************************************************/
+  closeDetails() {
+    element(by.css('.detail-close')).click();
+  }
+
+  /***************************************************************************
+   * Removing an app
+   **************************************************************************/
+  removeApp() {
+    // element(by.css('.app-removebtn')).click();
+  }
 }
