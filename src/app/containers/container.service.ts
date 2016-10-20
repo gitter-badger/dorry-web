@@ -18,6 +18,13 @@ export class ContainerService {
 
   constructor(private http: Http) { }
 
+  /***************************************************************************
+   * Function getRunningContainers() sends http GET request and asynchronously
+   * obtains running containers.
+   *
+   * @param      None
+   * @returns    Promise<Container[]>
+   ***************************************************************************/
   getRunningContainers(): Promise<Container[]> {
     return this.http.request(
       new Request({
@@ -29,6 +36,13 @@ export class ContainerService {
       .catch(this.handleError);
   }
 
+  /***************************************************************************
+   * Function getStoppedContainers() sends http GET request and asynchronously
+   * obtains stopped containers.
+   *
+   * @param      None
+   * @returns    Observable<Container[]>
+   ***************************************************************************/
   getStoppedContainers(): Observable<Container[]> {
     return this.http.request(
       new Request({
@@ -39,6 +53,13 @@ export class ContainerService {
       .catch(this.handleError);
   }
 
+  /***************************************************************************
+   * Function getErrorContainers() sends http GET request and asynchronously
+   * obtains error containers.
+   *
+   * @param      None
+   * @returns    Promise<Container[]>
+   ***************************************************************************/
   getErrorContainers(): Promise<Container[]> {
     return this.http.request(
       new Request({
@@ -50,6 +71,13 @@ export class ContainerService {
       .catch(this.handleError);
   }
 
+  /***************************************************************************
+   * Function getAllContainers() sends http GET request and asynchronously
+   * obtains all containers.
+   *
+   * @param      None
+   * @returns    Promise<Container[]>
+   ***************************************************************************/
   getAllContainers(): Promise<Container[]> {
     return this.http.request(
       new Request({
@@ -61,6 +89,13 @@ export class ContainerService {
       .catch(this.handleError);
   }
 
+  /***************************************************************************
+   * Function removeContainer() sends http DELETE request and asynchronously
+   * remove container with specified id.
+   *
+   * @param      {string} id
+   * @returns    None
+   ***************************************************************************/
   removeContainer(id: string) {
     return this.http.request(
       new Request({
